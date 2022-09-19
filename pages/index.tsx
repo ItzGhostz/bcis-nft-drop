@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { sanityClient, urlFor } from "../sanity";
 import { Collection } from "../typings";
+import Header from "./Header";
 
 interface Props {
   collections: Collection[];
@@ -10,21 +11,17 @@ interface Props {
 
 const Home = ({ collections }: Props) => {
   return (
-    <div className="max-w-7xl mx-auto flex flex-col min-h-screen py-20 px-10 2xl:px-0">
+    <div className="max-w-7xl mx-auto flex flex-col min-h-screen py-8 px-10 2xl:px-0">
       <Head>
         <title>BCIS NFT Drop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="mb-10 text-4xl font-extralight">
-        The{" "}
-        <span className="font-extrabold underline decoration-pink-600/50">
-          BCIS
-        </span>{" "}
-        NFT Market Place
-      </h1>
+      {/* Header */}
+      <Header />
+      <hr className="my-2 border" />
 
-      <main className="bg-slate-100 p-10 shadow-xl shadow-rose-400/20 rounded-2xl">
+      <main className="bg-slate-100 p-10 my-8 shadow-xl shadow-rose-400/20 rounded-2xl">
         <div className="grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {collections.map((collection) => (
             <Link href={`/nft/${collection.slug.current}`}>

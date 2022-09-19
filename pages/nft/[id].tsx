@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import { sanityClient, urlFor } from "../../sanity";
 import { Collection } from "../../typings";
 import Link from "next/link";
+import Header from "../Header";
 
 interface Props {
   collection: Collection;
@@ -46,32 +47,9 @@ function NFTDropPage({ collection }: Props) {
       {/* Right */}
       <div className="flex flex-1 flex-col p-12 lg:col-span-6">
         {/* Header */}
-        <header className="flex items-center justify-between">
-          <Link href={"/"}>
-            <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
-              The{" "}
-              <span className="font-extrabold underline decoration-pink-600/50">
-                BCIS
-              </span>{" "}
-              NFT Market Place
-            </h1>
-          </Link>
-
-          <button
-            onClick={() => (address ? disconnect() : connectWithMetamask())}
-            className="rounded-full bg-rose-400 text-white px-4 py-2 text-xs font-bold lg:px-5 lg:py-3 lg:text-base"
-          >
-            {address ? "Sign Out" : "Sign In"}
-          </button>
-        </header>
+        <Header />
 
         <hr className="my-2 border" />
-        {address && (
-          <p className="text-center text-sm text-rose-400">
-            You're logged in with wallet {address.substring(0, 5)}...
-            {address.substring(address.length - 5)}
-          </p>
-        )}
 
         {/* Content */}
         <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:space-y-0 lg:justify-center">
