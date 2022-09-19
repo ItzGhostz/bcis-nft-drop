@@ -21,6 +21,8 @@ const Home = ({ collections }: Props) => {
       <Header />
       <hr className="my-2 border" />
 
+      <h1 className="">The only NFT market place for BCIS</h1>
+
       <main className="bg-slate-100 p-10 my-8 shadow-xl shadow-rose-400/20 rounded-2xl">
         <div className="grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {collections.map((collection) => (
